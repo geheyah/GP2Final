@@ -14,13 +14,32 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 100))
+         //updown
+         if (Input.GetKey(KeyCode.W))
         {
-            Vector3 targetPosition = new Vector3(hit.point.x, height, hit.point.z);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * damping);
+            transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * 100, Space.World);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Rotate(new Vector3(-1, 0, 0) * Time.deltaTime * 100, Space.World);
+        }
+        //left right
+         if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 100, Space.World);
+        }
+         if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * 100, Space.World);
+        }
+        //optional
+         if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * 100, Space.World);
+        }
+         if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * 100, Space.World);
         }
     }
 }

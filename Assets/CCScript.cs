@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class CCScript : MonoBehaviour
 {
     [SerializeField]private CharacterController controller;
-    [SerializeField]private float speed = 3.0f;
-    [SerializeField]private float jumpHeight = 2.0f;
-    [SerializeField]private float gravity = -2f;
+    [SerializeField]private float speed = 1.0f;
+    [SerializeField]private float jumpHeight = 1.0f;
+    [SerializeField]private float gravity = -3f;
     [SerializeField]private bool isJumping;
     [SerializeField]private Vector3 velocity;
     void Start()
@@ -54,7 +54,6 @@ public class CCScript : MonoBehaviour
         {
             velocity.y += Physics.gravity.y * Time.deltaTime;
         }
-
         //rotate
         if (Input.GetKey(KeyCode.A))
         {
